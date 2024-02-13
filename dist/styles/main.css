@@ -1,0 +1,28 @@
+:root {
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main,
+#search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  min-height: 100vh;
+}
+
+#search-form {
+  flex-direction: column;
+  gap: 18px;
+}
