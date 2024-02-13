@@ -12,26 +12,30 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <header>
-      <form id="search-form">
-        <input type="text" id="location" name="location" />
-        <button type="submit" id="search-button">Search</button>
-      </form>
-    </header>
-    <main>
-      <div id="main-div">MAIN</div>
-      <div id="details-div">DETAILS</div>
-      <div id="forecast-div">FORECAST</div>
-      <!-- <img src="#" alt="Weather Icon" /> -->
-      <!-- <p id="name"></p> -->
-    </main>
-    <footer>
-      <!-- <p>
-        Powered by
-        <a href="https://www.weatherapi.com/" title="Free Weather API"
-          >WeatherAPI.com</a
-        >
-      </p> -->
-    </footer>
+    <div id="container">
+      <header>
+        <form id="search-form">
+          <input type="text" id="location-search" name="location" />
+          <button type="submit" id="search-button">
+            <i class="fa-solid fa-magnifying-glass-location"></i>
+          </button>
+        </form>
+      </header>
+      <main>
+        <div id="main-div">MAIN</div>
+        <div id="details-div">DETAILS</div>
+        <div id="forecast-div">FORECAST</div>
+        <!-- <img src="#" alt="Weather Icon" /> -->
+        <!-- <p id="name"></p> -->
+      </main>
+      <footer>
+        <!-- <p>
+          Powered by
+          <a href="https://www.weatherapi.com/" title="Free Weather API"
+            >WeatherAPI.com</a
+          >
+        </p> -->
+      </footer>
+    </div>
   </body>
 </html>
