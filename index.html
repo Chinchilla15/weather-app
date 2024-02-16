@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/aa73f4cdd9.js"
       crossorigin="anonymous"
@@ -23,24 +29,50 @@
       </header>
       <main>
         <div id="main-div">
-          <p>location</p>
+          <h2>location</h2>
           <div>Weather</div>
+          <div class="minmax-div">
+            <p class="min-temp">Min Temp</p>
+            <p class="max-temp">Max Temp</p>
+          </div>
         </div>
         <div id="details-div">
-          <p class="details">1</p>
-          <p class="details">2</p>
-          <p class="details">3</p>
-          <p class="details">4</p>
-          <p class="details">5</p>
-          <p class="details">6</p>
+          <div class="details-container">
+            <img src="./images/celsius.svg" alt="Temp C/F" />
+            <p class="detail-title">Temperature</p>
+            <p class="waether-info" id="temp-c">--</p>
+          </div>
+          <div class="details-container">
+            <img src="./images/thermometer-celsius.svg" alt="Feels Like" />
+            <p class="detail-title">Feels Like</p>
+            <p class="waether-info" id="feels-like">--</p>
+          </div>
+          <div class="details-container">
+            <img src="./images/humidity.svg" alt="Humidity" />
+            <p class="detail-title">Humidity</p>
+            <p class="waether-info" id="humidity">--</p>
+          </div>
+          <div class="details-container">
+            <img src="./images/wind.svg" alt="Wind" />
+            <p class="detail-title">Wind KPH</p>
+            <p class="waether-info" id="wind-kph">--</p>
+          </div>
+          <div class="details-container">
+            <img src="./images/raindrops.svg" alt="Precipitation" />
+            <p class="detail-title">Precipitation</p>
+            <p class="waether-info" id="precipitation">--</p>
+          </div>
+          <div class="details-container">
+            <img src="./images/uv-index.svg" alt="UV Index" />
+            <p class="detail-title">UV Index</p>
+            <p class="waether-info" id="uv-index">--</p>
+          </div>
         </div>
         <div id="forecast-div">
           <div class="forecast-day" id="day-one">Day one</div>
           <div class="forecast-day" id="day-two">Day Two</div>
           <div class="forecast-day" id="day-three">Day Three</div>
         </div>
-        <!-- <img src="#" alt="Weather Icon" /> -->
-        <!-- <p id="name"></p> -->
       </main>
       <footer>
         <!-- <p>

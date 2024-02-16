@@ -4,6 +4,7 @@
 }
 
 body {
+  font-family: "Raleway", sans-serif;
   flex-direction: column;
   height: 100vh;
   margin: 0;
@@ -27,7 +28,7 @@ body,
 header,
 #container,
 #search-form,
-.details,
+.details-container,
 .forecast-day {
   display: flex;
   align-items: center;
@@ -88,6 +89,13 @@ main {
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: space-evenly;
+}
+
+.minmax-div {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 #details-div {
@@ -111,10 +119,16 @@ main {
   border-right: 1px solid var(--black-color);
 }
 */
-.details {
+.details-container {
+  flex-direction: column;
   width: 90%;
   height: 90%;
   border-radius: 16px;
+}
+
+.detail-title {
+  font-weight: 300;
+  margin: 0;
 }
 
 #forecast-div {
@@ -130,4 +144,8 @@ main {
   width: 90%;
   height: 80%;
   border-radius: 16px;
+}
+
+img {
+  max-width: 70px;
 }
