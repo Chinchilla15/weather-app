@@ -1,6 +1,4 @@
 const ApiKey = "59d1ace8b6504eab8cf182808240702";
-const img = document.querySelector("img");
-const p = document.getElementById("name");
 /*
 function showData(data) {
   p.innerHTML = data.name;
@@ -28,6 +26,24 @@ function processData(data) {
   return { dataArray };
 }
 
+function processForecastData(data) {
+  const forecastDataArray = {
+    maxtemp_c_0: data.forecast.forecastday[0].day.maxtemp_c,
+    mintemp_c_0: data.forecast.forecastday[0].day.mintemp_c,
+    maxtemp_f_0: data.forecast.forecastday[0].day.maxtemp_f,
+    mintemp_f_0: data.forecast.forecastday[0].day.mintemp_f,
+    maxtemp_c_1: data.forecast.forecastday[1].day.maxtemp_c,
+    mintemp_c_1: data.forecast.forecastday[1].day.mintemp_c,
+    maxtemp_f_1: data.forecast.forecastday[1].day.maxtemp_f,
+    mintemp_f_1: data.forecast.forecastday[1].day.mintemp_f,
+    maxtemp_c_2: data.forecast.forecastday[2].day.maxtemp_c,
+    mintemp_c_2: data.forecast.forecastday[2].day.mintemp_c,
+    maxtemp_f_2: data.forecast.forecastday[2].day.maxtemp_f,
+    mintemp_f_2: data.forecast.forecastday[2].day.mintemp_f,
+  };
+  console.log(forecastDataArray);
+}
+
 async function getData(location) {
   // console.log(location);
 
@@ -49,4 +65,21 @@ async function getData(location) {
   }
 }
 
-export { getData };
+async function getForecast(location) {
+  if (location === "") {
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=${ApiKey}&q=${location}&days=3`,
+      { mode: "cors" },
+    );
+    const forecastData = await response.json();
+    processForecastData(forecastData);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export { getData, getForecast };
