@@ -26,21 +26,34 @@
             <i class="fa-solid fa-magnifying-glass-location"></i>
           </button>
         </form>
+        <div class="buttons-container">
+          <button id="celcius-button">&deg;C</button>
+          <button id="fahren-button">&deg;F</button>
+        </div>
       </header>
       <main>
         <div id="main-div">
-          <h2>location</h2>
-          <div>Weather</div>
+          <h2 id="location-name">location</h2>
+          <div id="condition-container">
+            <img src="./images/not-available.svg" alt="Condition Icon" />
+            <h3 id="condition-0">Condition</h3>
+          </div>
           <div class="minmax-div">
-            <p class="min-temp">Min Temp</p>
-            <p class="max-temp">Max Temp</p>
+            <div>
+              <p>Min Temp</p>
+              <p id="min-temp-0">--</p>
+            </div>
+            <div>
+              <p>Max Temp</p>
+              <p id="max-temp-0">--</p>
+            </div>
           </div>
         </div>
         <div id="details-div">
           <div class="details-container">
             <img src="./images/celsius.svg" alt="Temp C/F" />
             <p class="detail-title">Temperature</p>
-            <p class="waether-info" id="temp-c">--</p>
+            <p class="waether-info" id="temp">--</p>
           </div>
           <div class="details-container">
             <img src="./images/thermometer-celsius.svg" alt="Feels Like" />
@@ -55,7 +68,7 @@
           <div class="details-container">
             <img src="./images/wind.svg" alt="Wind" />
             <p class="detail-title">Wind KPH</p>
-            <p class="waether-info" id="wind-kph">--</p>
+            <p class="waether-info" id="wind">--</p>
           </div>
           <div class="details-container">
             <img src="./images/raindrops.svg" alt="Precipitation" />
@@ -69,9 +82,51 @@
           </div>
         </div>
         <div id="forecast-div">
-          <div class="forecast-day" id="day-one">Day one</div>
-          <div class="forecast-day" id="day-two">Day Two</div>
-          <div class="forecast-day" id="day-three">Day Three</div>
+          <div class="forecast-day" id="day-one">
+            <h3>Day one</h3>
+            <img src="./images/not-available.svg" alt="Condition Icon" />
+            <p id="condition-1">Condition</p>
+            <div class="minmax-div">
+              <div>
+                <p>Min Temp</p>
+                <p id="min-temp-1">--</p>
+              </div>
+              <div>
+                <p>Max Temp</p>
+                <p id="max-temp-1">--</p>
+              </div>
+            </div>
+          </div>
+          <div class="forecast-day" id="day-two">
+            <h3>Day Two</h3>
+            <img src="./images/not-available.svg" alt="Condition Icon" />
+            <p id="condition-2">Condition</p>
+            <div class="minmax-div">
+              <div>
+                <p>Min Temp</p>
+                <p id="min-temp-2">--</p>
+              </div>
+              <div>
+                <p>Max Temp</p>
+                <p id="max-temp-2">--</p>
+              </div>
+            </div>
+          </div>
+          <div class="forecast-day" id="day-three">
+            <h3>Day Three</h3>
+            <img src="./images/not-available.svg" alt="Condition Icon" />
+            <p id="condition-3">Condition</p>
+            <div class="minmax-div">
+              <div>
+                <p>Min Temp</p>
+                <p id="min-temp-3">--</p>
+              </div>
+              <div>
+                <p>Max Temp</p>
+                <p id="max-temp-3">--</p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       <footer>
