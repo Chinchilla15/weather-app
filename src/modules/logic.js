@@ -1,17 +1,16 @@
-/* eslint-disable camelcase */
-import {
-  showDataCurrent_C,
-  showDataCurrent_F,
-  showDataForecast_C,
-  showDataForecast_F,
-} from "./dom";
+import { showDataCurrent, showDataForecast, iconMap } from "./dom";
 
 const ApiKey = "59d1ace8b6504eab8cf182808240702";
 
+function getIconByCode(code) {
+  return iconMap[code] || iconMap.default;
+}
+
 function processData(data, displayF) {
-  const dataObject_C = {
-    celciusData: data.current.temp_c,
-    feelsLikeC: data.current.feelslike_c,
+  const temperatureUnit = displayF ? "fahrenheit" : "celsius";
+  const dataObject = {
+    temperatureData: displayF ? data.current.temp_f : data.current.temp_c,
+    feelsLike: displayF ? data.current.feelslike_f : data.current.feelslike_c,
     humidity: data.current.humidity,
     windKph: data.current.wind_kph,
     name: data.location.name,
@@ -20,58 +19,30 @@ function processData(data, displayF) {
     uv: data.current.uv,
     precipMm: data.current.precip_mm,
     precipInch: data.current.precip_in,
+    iconFileName: getIconByCode(data.current.condition.code),
+    temperatureUnit,
   };
 
-  const dataObject_F = {
-    fahrenheitData: data.current.temp_f,
-    feelsLikeF: data.current.feelslike_f,
-    humidity: data.current.humidity,
-    windKph: data.current.wind_kph,
-    name: data.location.name,
-    country: data.location.country,
-    condition: data.current.condition.text,
-    uv: data.current.uv,
-    precipMm: data.current.precip_mm,
-    precipInch: data.current.precip_in,
-  };
-
-  if (displayF) {
-    showDataCurrent_F(dataObject_F);
-  } else {
-    showDataCurrent_C(dataObject_C);
-  }
+  showDataCurrent(dataObject);
 }
 
 function processForecastData(data, displayF) {
-  const forecastDataObject_C = {
-    maxtemp_c_0: data.forecast.forecastday[0].day.maxtemp_c,
-    mintemp_c_0: data.forecast.forecastday[0].day.mintemp_c,
-    condition_0: data.forecast.forecastday[0].day.condition.text,
-    maxtemp_c_1: data.forecast.forecastday[1].day.maxtemp_c,
-    mintemp_c_1: data.forecast.forecastday[1].day.mintemp_c,
-    condition_1: data.forecast.forecastday[1].day.condition.text,
-    maxtemp_c_2: data.forecast.forecastday[2].day.maxtemp_c,
-    mintemp_c_2: data.forecast.forecastday[2].day.mintemp_c,
-    condition_2: data.forecast.forecastday[2].day.condition.text,
+  const temperatureUnit = displayF ? "fahrenheit" : "celsius";
+  const forecastDataObject = {
+    maxtemp: data.forecast.forecastday.map((day) =>
+      displayF ? day.day.maxtemp_f : day.day.maxtemp_c,
+    ),
+    mintemp: data.forecast.forecastday.map((day) =>
+      displayF ? day.day.mintemp_f : day.day.mintemp_c,
+    ),
+    condition: data.forecast.forecastday.map((day) => day.day.condition.text),
+    temperatureUnit,
+    iconFileName: data.forecast.forecastday.map((day) =>
+      getIconByCode(day.day.condition.code),
+    ),
   };
 
-  const forecastDataObject_F = {
-    maxtemp_f_0: data.forecast.forecastday[0].day.maxtemp_f,
-    mintemp_f_0: data.forecast.forecastday[0].day.mintemp_f,
-    maxtemp_f_1: data.forecast.forecastday[1].day.maxtemp_f,
-    mintemp_f_1: data.forecast.forecastday[1].day.mintemp_f,
-    maxtemp_f_2: data.forecast.forecastday[2].day.maxtemp_f,
-    mintemp_f_2: data.forecast.forecastday[2].day.mintemp_f,
-    condition_0: data.forecast.forecastday[0].day.condition.text,
-    condition_1: data.forecast.forecastday[1].day.condition.text,
-    condition_2: data.forecast.forecastday[2].day.condition.text,
-  };
-
-  if (displayF) {
-    showDataForecast_F(forecastDataObject_F);
-  } else {
-    showDataForecast_C(forecastDataObject_C);
-  }
+  showDataForecast(forecastDataObject);
 }
 
 async function getData(location, displayF = false) {
