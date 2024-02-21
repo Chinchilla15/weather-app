@@ -53,9 +53,6 @@ function processForecastData(data, displayF) {
     maxtemp_c_2: data.forecast.forecastday[2].day.maxtemp_c,
     mintemp_c_2: data.forecast.forecastday[2].day.mintemp_c,
     condition_2: data.forecast.forecastday[2].day.condition.text,
-    maxtemp_c_3: data.forecast.forecastday[3].day.maxtemp_c,
-    mintemp_c_3: data.forecast.forecastday[3].day.mintemp_c,
-    condition_3: data.forecast.forecastday[3].day.condition.text,
   };
 
   const forecastDataObject_F = {
@@ -65,12 +62,9 @@ function processForecastData(data, displayF) {
     mintemp_f_1: data.forecast.forecastday[1].day.mintemp_f,
     maxtemp_f_2: data.forecast.forecastday[2].day.maxtemp_f,
     mintemp_f_2: data.forecast.forecastday[2].day.mintemp_f,
-    maxtemp_f_3: data.forecast.forecastday[3].day.maxtemp_f,
-    mintemp_f_3: data.forecast.forecastday[3].day.mintemp_f,
     condition_0: data.forecast.forecastday[0].day.condition.text,
     condition_1: data.forecast.forecastday[1].day.condition.text,
     condition_2: data.forecast.forecastday[2].day.condition.text,
-    condition_3: data.forecast.forecastday[3].day.condition.text,
   };
 
   if (displayF) {
@@ -106,7 +100,7 @@ async function getForecast(location, displayF = false) {
 
   try {
     const response = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=${ApiKey}&q=${location}&days=4`,
+      `https://api.weatherapi.com/v1/forecast.json?key=${ApiKey}&q=${location}&days=3`,
       { mode: "cors" },
     );
     const forecastData = await response.json();

@@ -17,9 +17,6 @@ const maxTemp1 = document.getElementById("max-temp-1");
 const condition2 = document.getElementById("condition-2");
 const minTemp2 = document.getElementById("min-temp-2");
 const maxTemp2 = document.getElementById("max-temp-2");
-const condition3 = document.getElementById("condition-3");
-const minTemp3 = document.getElementById("min-temp-3");
-const maxTemp3 = document.getElementById("max-temp-3");
 
 const tempImg = document.getElementById("temp-img");
 const feelsLikeImg = document.getElementById("feels-like-img");
@@ -60,9 +57,6 @@ function showDataForecast_C(data) {
   condition2.innerHTML = data.condition_2;
   minTemp2.innerHTML = data.mintemp_c_2;
   maxTemp2.innerHTML = data.maxtemp_c_2;
-  condition3.innerHTML = data.condition_3;
-  minTemp3.innerHTML = data.mintemp_c_3;
-  maxTemp3.innerHTML = data.maxtemp_c_3;
 }
 
 function showDataForecast_F(data) {
@@ -74,9 +68,6 @@ function showDataForecast_F(data) {
   condition2.innerHTML = data.condition_2;
   minTemp2.innerHTML = data.mintemp_f_2;
   maxTemp2.innerHTML = data.maxtemp_f_2;
-  condition3.innerHTML = data.condition_3;
-  minTemp3.innerHTML = data.mintemp_f_3;
-  maxTemp3.innerHTML = data.maxtemp_f_3;
 }
 
 export {
