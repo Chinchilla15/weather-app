@@ -2,21 +2,40 @@ import { getData, getForecast } from "./modules/logic";
 
 const searchButton = document.getElementById("search-button");
 const input = document.getElementById("location-search");
-const fahrenBuutton = document.getElementById("fahren-button");
-const celciusButton = document.getElementById("celcius-button");
+const fahrenButton = document.getElementById("fahren-button");
+const celsiusButton = document.getElementById("celsius-button");
+celsiusButton.style.setProperty("background", "var(--blue-color)");
+
+let currentLocation = "San Salvador";
+getData(currentLocation);
+getForecast(currentLocation);
+
+function toggleTemperatureButton(activeButton, inactiveButton, activeColor) {
+  inactiveButton.classList.remove("active-button");
+  inactiveButton.style.removeProperty("background");
+
+  activeButton.classList.add("active-button");
+  activeButton.style.setProperty("background", activeColor);
+}
 
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
   getData(input.value);
   getForecast(input.value);
+  currentLocation = input.value;
+  toggleTemperatureButton(celsiusButton, fahrenButton, "var(--blue-color)");
 });
 
-fahrenBuutton.addEventListener("click", () => {
-  getData(input.value, true);
-  getForecast(input.value, true);
+fahrenButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  getData(currentLocation, true);
+  getForecast(currentLocation, true);
+  toggleTemperatureButton(fahrenButton, celsiusButton, "var(--red-color)");
 });
 
-celciusButton.addEventListener("click", () => {
-  getData(input.value, false);
-  getForecast(input.value, false);
+celsiusButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  getData(currentLocation, false);
+  getForecast(currentLocation, false);
+  toggleTemperatureButton(celsiusButton, fahrenButton, "var(--blue-color)");
 });
