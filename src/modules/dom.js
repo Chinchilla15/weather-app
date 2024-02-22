@@ -105,4 +105,12 @@ const iconMap = {
   default: "not-available.svg",
 };
 
-export { showDataCurrent, showDataForecast, iconMap };
+function toggleTemperatureButton(activeButton, inactiveButton, activeColor) {
+  inactiveButton.classList.remove("active-button");
+  inactiveButton.style.removeProperty("background");
+
+  activeButton.classList.add("active-button");
+  activeButton.style.setProperty("background", activeColor);
+}
+
+export { showDataCurrent, showDataForecast, iconMap, toggleTemperatureButton };
