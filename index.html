@@ -18,128 +18,135 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <div id="container">
-      <header>
-        <form id="search-form">
-          <input type="text" id="location-search" name="location" />
-          <button type="submit" id="search-button">
-            <i class="fa-solid fa-magnifying-glass-location"></i>
-          </button>
-        </form>
-        <div class="buttons-container">
-          <button id="celsius-button" class="temp-button active-button">
-            &deg;C
-          </button>
-          <button id="fahren-button" class="temp-button">&deg;F</button>
+    <header>
+      <form id="search-form">
+        <input
+          type="text"
+          id="location-search"
+          name="location"
+          placeholder="Enter a location"
+          minlength="3"
+          pattern="^[a-zA-Z\s\-]+$"
+          maxlength="65"
+          required
+        />
+        <button type="submit" id="search-button">
+          <i class="fa-solid fa-magnifying-glass-location"></i>
+        </button>
+      </form>
+      <div class="buttons-container">
+        <button id="celsius-button" class="temp-button active-button">
+          &deg;C
+        </button>
+        <button id="fahren-button" class="temp-button">&deg;F</button>
+      </div>
+    </header>
+    <main>
+      <div id="main-div">
+        <h2 id="location-name">Location</h2>
+        <div id="condition-container">
+          <img
+            id="weather-icon-0"
+            src="./images/not-available.svg"
+            alt="Condition Icon"
+          />
+          <h3 id="condition-0">Condition</h3>
         </div>
-      </header>
-      <main>
-        <div id="main-div">
-          <h2 id="location-name">Location</h2>
-          <div id="condition-container">
-            <img
-              id="weather-icon-0"
-              src="./images/not-available.svg"
-              alt="Condition Icon"
-            />
-            <h3 id="condition-0">Condition</h3>
+        <div class="minmax-div">
+          <div>
+            <p>Min Temp</p>
+            <p id="min-temp-0">--</p>
           </div>
+          <div>
+            <p>Max Temp</p>
+            <p id="max-temp-0">--</p>
+          </div>
+        </div>
+      </div>
+      <div id="details-div">
+        <div class="details-container">
+          <img id="temp-img" src="./images/celsius.svg" alt="Temp C/F" />
+          <p class="detail-title">Temperature</p>
+          <p class="waether-info" id="temp">--</p>
+        </div>
+        <div class="details-container">
+          <img
+            id="feels-like-img"
+            src="./images/thermometer-celsius.svg"
+            alt="Feels Like"
+          />
+          <p class="detail-title">Feels Like</p>
+          <p class="waether-info" id="feels-like">--</p>
+        </div>
+        <div class="details-container">
+          <img src="./images/humidity.svg" alt="Humidity" />
+          <p class="detail-title">Humidity</p>
+          <p class="waether-info" id="humidity">--</p>
+        </div>
+        <div class="details-container">
+          <img src="./images/wind.svg" alt="Wind" />
+          <p class="detail-title">Wind (KPH)</p>
+          <p class="waether-info" id="wind">--</p>
+        </div>
+        <div class="details-container">
+          <img src="./images/raindrops.svg" alt="Precipitation" />
+          <p class="detail-title">Precipitation (mm)</p>
+          <p class="waether-info" id="precipitation">--</p>
+        </div>
+        <div class="details-container">
+          <img src="./images/uv-index.svg" alt="UV Index" />
+          <p class="detail-title">UV Index</p>
+          <p class="waether-info" id="uv-index">--</p>
+        </div>
+      </div>
+      <div id="forecast-div">
+        <div class="forecast-day" id="day-one">
+          <h3>Tomorrow</h3>
+          <img
+            id="weather-icon-1"
+            src="./images/not-available.svg"
+            alt="Condition Icon"
+          />
+          <h3 id="condition-1">Condition</h3>
           <div class="minmax-div">
             <div>
               <p>Min Temp</p>
-              <p id="min-temp-0">--</p>
+              <p id="min-temp-1">--</p>
             </div>
             <div>
               <p>Max Temp</p>
-              <p id="max-temp-0">--</p>
+              <p id="max-temp-1">--</p>
             </div>
           </div>
         </div>
-        <div id="details-div">
-          <div class="details-container">
-            <img id="temp-img" src="./images/celsius.svg" alt="Temp C/F" />
-            <p class="detail-title">Temperature</p>
-            <p class="waether-info" id="temp">--</p>
-          </div>
-          <div class="details-container">
-            <img
-              id="feels-like-img"
-              src="./images/thermometer-celsius.svg"
-              alt="Feels Like"
-            />
-            <p class="detail-title">Feels Like</p>
-            <p class="waether-info" id="feels-like">--</p>
-          </div>
-          <div class="details-container">
-            <img src="./images/humidity.svg" alt="Humidity" />
-            <p class="detail-title">Humidity</p>
-            <p class="waether-info" id="humidity">--</p>
-          </div>
-          <div class="details-container">
-            <img src="./images/wind.svg" alt="Wind" />
-            <p class="detail-title">Wind (KPH)</p>
-            <p class="waether-info" id="wind">--</p>
-          </div>
-          <div class="details-container">
-            <img src="./images/raindrops.svg" alt="Precipitation" />
-            <p class="detail-title">Precipitation (mm)</p>
-            <p class="waether-info" id="precipitation">--</p>
-          </div>
-          <div class="details-container">
-            <img src="./images/uv-index.svg" alt="UV Index" />
-            <p class="detail-title">UV Index</p>
-            <p class="waether-info" id="uv-index">--</p>
-          </div>
-        </div>
-        <div id="forecast-div">
-          <div class="forecast-day" id="day-one">
-            <h3>Tomorrow</h3>
-            <img
-              id="weather-icon-1"
-              src="./images/not-available.svg"
-              alt="Condition Icon"
-            />
-            <h3 id="condition-1">Condition</h3>
-            <div class="minmax-div">
-              <div>
-                <p>Min Temp</p>
-                <p id="min-temp-1">--</p>
-              </div>
-              <div>
-                <p>Max Temp</p>
-                <p id="max-temp-1">--</p>
-              </div>
+        <div class="forecast-day" id="day-two">
+          <h3>Day After Tomorrow</h3>
+          <img
+            id="weather-icon-2"
+            src="./images/not-available.svg"
+            alt="Condition Icon"
+          />
+          <h3 id="condition-2">Condition</h3>
+          <div class="minmax-div">
+            <div>
+              <p>Min Temp</p>
+              <p id="min-temp-2">--</p>
             </div>
-          </div>
-          <div class="forecast-day" id="day-two">
-            <h3>Day After Tomorrow</h3>
-            <img
-              id="weather-icon-2"
-              src="./images/not-available.svg"
-              alt="Condition Icon"
-            />
-            <h3 id="condition-2">Condition</h3>
-            <div class="minmax-div">
-              <div>
-                <p>Min Temp</p>
-                <p id="min-temp-2">--</p>
-              </div>
-              <div>
-                <p>Max Temp</p>
-                <p id="max-temp-2">--</p>
-              </div>
+            <div>
+              <p>Max Temp</p>
+              <p id="max-temp-2">--</p>
             </div>
           </div>
         </div>
-      </main>
-      <footer>
-        <!-- <p>
-          Powered by
-          <a href="https://www.weatherapi.com/" title="Free Weather API"
-            >WeatherAPI.com</a
-          >
-        </p> -->
-      </footer>
-    </div>
+      </div>
+    </main>
+    <footer>
+      <!-- <p>
+        Powered by
+        <a href="https://www.weatherapi.com/" title="Free Weather API"
+          >WeatherAPI.com</a
+        >
+      </p> -->
+    </footer>
   </body>
 </html>
