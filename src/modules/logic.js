@@ -46,39 +46,32 @@ function processForecastData(data, displayF) {
 }
 
 async function getData(location, displayF = false) {
-  if (location === "") {
-    console.log("Please enter a location "); // Change this!!
-    return;
-  }
-
+  const inputLocation = document.getElementById("location-search");
   try {
     const response = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=${ApiKey}&q=${location}`,
       { mode: "cors" },
     );
     const weatherData = await response.json();
-    // console.log(weatherData);
     processData(weatherData, displayF);
-  } catch (err) {
-    console.log(err); // Change Error Handling
+  } catch {
+    inputLocation.setCustomValidity("Invalid location. Please try again.");
+    inputLocation.reportValidity();
   }
 }
 
 async function getForecast(location, displayF = false) {
-  if (location === "") {
-    return;
-  }
-
+  const inputLocation = document.getElementById("location-search");
   try {
     const response = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=${ApiKey}&q=${location}&days=3`,
       { mode: "cors" },
     );
     const forecastData = await response.json();
-    // console.log(forecastData);
     processForecastData(forecastData, displayF);
-  } catch (err) {
-    console.log(err); // Change Error Handling
+  } catch {
+    inputLocation.setCustomValidity("Invalid location. Please try again.");
+    inputLocation.reportValidity();
   }
 }
 
