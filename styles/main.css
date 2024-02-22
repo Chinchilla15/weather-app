@@ -11,16 +11,6 @@ body {
   height: 100vh;
   margin: 0;
   background: var(--white-color);
-  /*background: linear-gradient(135deg, #3a6fa4 0%, #3758cb 50%, #acd8ff 100%);*/
-}
-
-#container {
-  height: 100%;
-  width: 100%;
-  flex-direction: column;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 * {
@@ -170,5 +160,36 @@ main {
 }
 
 img {
-  max-width: 70px;
+  max-width: 80px;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 30%;
+  min-width: 250px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--blue-color);
+}
+
+.fa-github {
+  cursor: pointer;
+  color: var(--blue-color);
+  transition: transform 0.2s;
+}
+
+.fa-github:hover {
+  transform: scale(1.25);
 }
